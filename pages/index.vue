@@ -148,6 +148,7 @@ body, html
 {
     margin: 0;
     font-size: 14px;
+    color: #900C3F;
 }
 .taskItemRight
 {
