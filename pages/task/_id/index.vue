@@ -140,6 +140,20 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+@keyframes fadeUp
+{
+    0%
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100%
+    {
+        opacity: 1;
+        transform: none;
+    }
+
+}
 .container
 {
     width: 100%;
@@ -161,6 +175,7 @@ export default Vue.extend({
     background: #fff;
     margin: 0 auto;
     padding: 30px 10px;
+    animation: fadeUp 1s ease-in-out;
 }
 .taskContainer h2
 {

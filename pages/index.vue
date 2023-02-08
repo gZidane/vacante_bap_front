@@ -15,7 +15,9 @@
             </a>
         </div>
 
-        <button alt="Add new task" class="addButton" >+</button>
+        <a href="/task/add">
+            <button alt="Add new task" class="addButton" >+</button>
+        </a>
     </div>
 </template>
 
@@ -69,6 +71,21 @@ export default Vue.extend({
       {
         this.tasks = (resp as any).data;
 
+        setTimeout(() =>
+        {
+            let items = document.getElementsByClassName("taskItem");
+
+            for(let i = 0; i < items.length; i++)
+            {
+                setTimeout(() =>
+                {
+                    (items[i] as HTMLElement).classList.add("animated");
+
+                }, i * 250);
+            }
+
+        }, 300);
+
       })
       .catch(err =>
       {
@@ -82,6 +99,20 @@ export default Vue.extend({
 <style scoped>
 body, html
 {
+
+}
+@keyframes fadeUp
+{
+    0%
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100%
+    {
+        opacity: 1;
+        transform: none;
+    }
 
 }
 .addButton
@@ -138,6 +169,12 @@ body, html
     box-sizing: border-box;
     display: flex;
     color: #222;
+    opacity: 0;
+}
+.taskItem.animated
+{
+    animation: fadeUp 1s ease-in-out;
+    opacity: 1;
 }
 .taskItemLeft
 {
